@@ -1,6 +1,5 @@
 ### Intellij+all ###
 .idea/*
-
 !.idea/codeStyles
 !.idea/runConfigurations
 
