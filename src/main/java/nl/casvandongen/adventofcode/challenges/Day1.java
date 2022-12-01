@@ -1,25 +1,20 @@
-package nl.casvandongen.adventofcode.days;
+package nl.casvandongen.adventofcode.challenges;
 
 import lombok.extern.slf4j.Slf4j;
+import nl.casvandongen.adventofcode.annotations.DailyChallenge;
 import nl.casvandongen.adventofcode.utils.Input;
 
 import java.util.*;
 import java.util.stream.Stream;
 
 @Slf4j
-public class Day1
+@DailyChallenge(day = 1)
+public class Day1 implements Challenge
 {
-    public static void main(String[] args)
-    {
-        Day1 day = new Day1();
-        day.part1();
-        day.part2();
-    }
-
     public void part1()
     {
         Optional<Long> largest = totals().reduce(Math::max);
-        largest.ifPresent(val -> log.info("Largest amount of calories: {}", val));
+        largest.ifPresent(val -> log.info("Largest stack: {}", val));
     }
 
     public void part2()
@@ -28,7 +23,7 @@ public class Day1
                 .sorted(Comparator.reverseOrder())
                 .limit(3)
                 .reduce(Math::addExact);
-        largestThree.ifPresent(val -> log.info("Largest three calories stacks: {}", val));
+        largestThree.ifPresent(val -> log.info("Total of largest three stacks: {}", val));
     }
 
     private Stream<Long> totals()
