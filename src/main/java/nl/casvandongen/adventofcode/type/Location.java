@@ -20,6 +20,11 @@ public record Location(Long x, Long y)
         return Math.sqrt(((this.x - other.x) * (this.x - other.x)) + ((this.y - other.y) * (this.y - other.y)));
     }
 
+    public Long distanceTo2D(Location other)
+    {
+        return Math.max(Math.abs(this.x - other.x), Math.abs(this.y - other.y));
+    }
+
     public List<Long> toList()
     {
         return List.of(x, y);
