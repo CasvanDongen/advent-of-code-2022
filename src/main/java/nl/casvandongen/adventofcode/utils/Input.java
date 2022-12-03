@@ -1,5 +1,6 @@
 package nl.casvandongen.adventofcode.utils;
 
+import com.google.common.collect.Lists;
 import nl.casvandongen.adventofcode.type.Location;
 import nl.casvandongen.adventofcode.type.Location3D;
 
@@ -8,11 +9,12 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Stream;
 
 public class Input
 {
-    private static String DEFAULT_LINE_DELIMITER = "\r\n";
+    private static final String DEFAULT_LINE_DELIMITER = "\r\n";
 
     public static String readAsString(String name)
     {
@@ -34,6 +36,11 @@ public class Input
     public static Stream<String> readString(String name, String lineDelimiter)
     {
         return Arrays.stream(readAsString(name).split(lineDelimiter));
+    }
+
+    public static Stream<List<String>> readStringGrouped(String name, int size)
+    {
+        return Lists.partition(Arrays.asList(readAsString(name).split(DEFAULT_LINE_DELIMITER)), size).stream();
     }
 
     public static Stream<Long> readNumber(String name)

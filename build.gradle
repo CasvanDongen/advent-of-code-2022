@@ -11,6 +11,8 @@ repositories {
 }
 
 dependencies {
+    implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
+    
     implementation group: 'org.slf4j', name: 'slf4j-simple', version: '2.0.5'
     implementation group: 'io.github.classgraph', name: 'classgraph', version: '4.8.151'
     implementation group: 'commons-cli', name: 'commons-cli', version: '1.5.0'
