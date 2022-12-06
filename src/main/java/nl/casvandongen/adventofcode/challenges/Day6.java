@@ -28,12 +28,9 @@ public class Day6 implements Challenge
 
     private int marker(String input, int length)
     {
-        StringBuilder buffer = new StringBuilder(length);
-        for (int i = 0; i + length < input.length(); i++)
+        for (int i = 0; i < input.chars().count(); i++)
         {
-            buffer.setLength(0);
-            buffer.insert(0, input, i, i + length);
-            if (buffer.chars().distinct().count() >= length)
+            if (input.substring(i, i + length).chars().distinct().count() == length)
             {
                 return length + i;
             }
